@@ -1,13 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nccsoft.photosocial.fragments.UploadFragment">
+    android:orientation="vertical"
+    tools:context=".fragments.NewPhotosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/upload"
-        android:textSize="100sp" />
-</FrameLayout>
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:paddingTop="10dp" />
+</RelativeLayout>

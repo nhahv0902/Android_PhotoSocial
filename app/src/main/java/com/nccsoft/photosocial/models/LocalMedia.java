@@ -4,18 +4,22 @@ package com.nccsoft.photosocial.models;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import java.io.Serializable;
+import org.parceler.Parcel;
 
 /**
  * Created by nhahv on 2015/8/5.
  * <></>
  */
 
-public class LocalMedia implements Serializable {
+@Parcel
+public class LocalMedia {
 
-    private String path;
-    private int width, height;
-    private float ratio;
+    public String path;
+    public int width, height;
+    public float ratio;
+
+    public LocalMedia() {
+    }
 
     public LocalMedia(String path) {
         this.path = path;

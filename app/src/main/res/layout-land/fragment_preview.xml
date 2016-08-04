@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_ground_black"
+    tools:context=".fragments.PreviewFragment">
+
+    <com.nccsoft.photosocial.photoviews.PhotoView
+        android:id="@+id/image_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/t" />
+
+</FrameLayout>

@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:padding="1dp">
 
-    <com.nccsoft.photosocial.views.DynamicImageView
-        android:id="@+id/image_camera"
+    <com.nccsoft.photosocial.views.ImageVertical
+        android:id="@+id/image_upload"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:src="@drawable/o"
         android:contentDescription="@null"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_insert_photo_black_48dp">
+        android:scaleType="fitCenter">
 
-    </com.nccsoft.photosocial.views.DynamicImageView>
+    </com.nccsoft.photosocial.views.ImageVertical>
 
 </RelativeLayout>

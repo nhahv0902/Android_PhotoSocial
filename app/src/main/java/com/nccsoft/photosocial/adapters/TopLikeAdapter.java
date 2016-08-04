@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.nccsoft.photosocial.R;
 import com.nccsoft.photosocial.models.LocalMedia;
-import com.nccsoft.photosocial.views.DynamicImageView;
+import com.nccsoft.photosocial.views.ImageVertical;
+import com.nccsoft.photosocial.views.flowlayout.FlowLayout;
 
 import java.io.File;
 import java.util.List;
@@ -20,13 +20,13 @@ import java.util.List;
  * <></>
  */
 
-public class NewPhotosAdapter extends RecyclerView.Adapter<NewPhotosAdapter.ViewHolder> {
+public class TopLikeAdapter extends RecyclerView.Adapter<TopLikeAdapter.ViewHolder> {
 
     private Context mContext;
     private List<LocalMedia> mListLocalMedia;
     private OnClickPreview mOnClickPreview;
 
-    public NewPhotosAdapter(Context context, List<LocalMedia> objects) {
+    public TopLikeAdapter(Context context, List<LocalMedia> objects) {
         mContext = context;
         mListLocalMedia = objects;
     }
@@ -35,7 +35,7 @@ public class NewPhotosAdapter extends RecyclerView.Adapter<NewPhotosAdapter.View
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater
                 .from(mContext)
-                .inflate(R.layout.item_new_photos, parent, false));
+                .inflate(R.layout.item_flow_layout, parent, false));
     }
 
     @Override
@@ -43,10 +43,20 @@ public class NewPhotosAdapter extends RecyclerView.Adapter<NewPhotosAdapter.View
         LocalMedia item = mListLocalMedia.get(position);
 
 
-        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) holder.image.getLayoutParams();
-        rlp.height = (int) (rlp.width * item.getRatio());
-        holder.image.setLayoutParams(rlp);
+//        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) holder.image.getLayoutParams();
+//        rlp.width = (int) (rlp.height / item.getRatio());
+//        holder.image.setLayoutParams(rlp);
+//        holder.image.setRatio(item.getRatio());
+
+        FlowLayout.LayoutParams params =
+                new FlowLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.width = (int) (params.height / item.getRatio());
+        holder.image.setLayoutParams(params);
         holder.image.setRatio(item.getRatio());
+
+//        params.setNewLine(model.newLine);
+//        textView.setLayoutParams(params);
 
         Glide.with(mContext)
                 .load(new File(item.getPath()))
@@ -70,12 +80,12 @@ public class NewPhotosAdapter extends RecyclerView.Adapter<NewPhotosAdapter.View
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private DynamicImageView image;
+        private ImageVertical image;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            image = (DynamicImageView) itemView.findViewById(R.id.image_camera);
+            image = (ImageVertical) itemView.findViewById(R.id.image_upload);
         }
     }
 

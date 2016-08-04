@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
                 .setFirstSelectedPosition(0)
                 .initialise();
 
+        mNavigationBar.setAutoHideEnabled(false);
 
         // setup view pager
         List<Fragment> mListFragment = new ArrayList<>();
