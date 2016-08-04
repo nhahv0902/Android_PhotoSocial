@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:src="@drawable/o"
         android:contentDescription="@null"
-        android:scaleType="fitCenter">
+        android:scaleType="fitCenter"
+        android:src="@drawable/o">
 
     </com.nccsoft.photosocial.views.ImageVertical>
 

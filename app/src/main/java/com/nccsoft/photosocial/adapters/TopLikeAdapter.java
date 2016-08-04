@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.nccsoft.photosocial.R;
 import com.nccsoft.photosocial.models.LocalMedia;
 import com.nccsoft.photosocial.views.ImageVertical;
-import com.nccsoft.photosocial.views.flowlayout.FlowLayout;
 
 import java.io.File;
 import java.util.List;
@@ -35,28 +35,19 @@ public class TopLikeAdapter extends RecyclerView.Adapter<TopLikeAdapter.ViewHold
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater
                 .from(mContext)
-                .inflate(R.layout.item_flow_layout, parent, false));
+                .inflate(R.layout.item_upload, parent, false));
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         LocalMedia item = mListLocalMedia.get(position);
 
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) holder.image.getLayoutParams();
 
-//        RelativeLayout.LayoutParams rlp = (RelativeLayout.LayoutParams) holder.image.getLayoutParams();
-//        rlp.width = (int) (rlp.height / item.getRatio());
-//        holder.image.setLayoutParams(rlp);
-//        holder.image.setRatio(item.getRatio());
-
-        FlowLayout.LayoutParams params =
-                new FlowLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.height = 300;
         params.width = (int) (params.height / item.getRatio());
         holder.image.setLayoutParams(params);
         holder.image.setRatio(item.getRatio());
-
-//        params.setNewLine(model.newLine);
-//        textView.setLayoutParams(params);
 
         Glide.with(mContext)
                 .load(new File(item.getPath()))
@@ -84,7 +75,6 @@ public class TopLikeAdapter extends RecyclerView.Adapter<TopLikeAdapter.ViewHold
 
         ViewHolder(View itemView) {
             super(itemView);
-
             image = (ImageVertical) itemView.findViewById(R.id.image_upload);
         }
     }
