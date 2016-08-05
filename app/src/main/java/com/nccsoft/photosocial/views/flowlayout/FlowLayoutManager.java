@@ -690,11 +690,6 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
         return ((RecyclerView.LayoutParams) child.getLayoutParams()).isItemRemoved();
     }
 
-    public FlowLayoutManager setAlignment(Alignment alignment) {
-        newFlowLayoutOptions.alignment = alignment;
-        return this;
-    }
-
     public FlowLayoutManager singleItemPerLine() {
         if (layoutHelper == null) {
             flowLayoutOptions.itemsPerLine = 1;

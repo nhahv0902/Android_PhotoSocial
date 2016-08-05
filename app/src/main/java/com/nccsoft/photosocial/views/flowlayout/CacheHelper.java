@@ -155,7 +155,7 @@ class CacheHelper {
         return lineCounts;
     }
 
-    public int itemLineIndex(int itemIndex) {
+    int itemLineIndex(int itemIndex) {
         if (!valid()) {
             return NOT_FOUND;
         }
@@ -169,14 +169,14 @@ class CacheHelper {
         return NOT_FOUND;
     }
 
-    public Line containingLine(int itemIndex) {
+    private Line containingLine(int itemIndex) {
         if (!valid()) {
             return null;
         }
         return getLine(itemLineIndex(itemIndex));
     }
 
-    public int firstItemIndex(int lineIndex) {
+    int firstItemIndex(int lineIndex) {
         if (!valid()) {
             return NOT_FOUND;
         }

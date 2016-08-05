@@ -50,8 +50,6 @@ public class NewPhotosFragment extends Fragment implements NewPhotosAdapter.OnCl
     private void initViews(View view) {
 
         mListLocalMedia = ImagesManager.getListAll();
-//        StaggeredGridView gridNewPhoto =
-//                (StaggeredGridView) view.findViewById(R.id.list_item);
 
         RecyclerView gridNewPhoto =
                 (RecyclerView) view.findViewById(R.id.list_item);
@@ -63,8 +61,6 @@ public class NewPhotosFragment extends Fragment implements NewPhotosAdapter.OnCl
                 new NewPhotosAdapter(getActivity(), mListLocalMedia);
         mAdapter.setOnClickPreview(this);
         gridNewPhoto.setAdapter(mAdapter);
-//        gridNewPhoto.setOnScrollListener(this);
-//        gridNewPhoto.setOnItemClickListener(this);
     }
 
 

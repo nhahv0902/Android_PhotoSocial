@@ -53,9 +53,9 @@ public class TopLikedFragment extends Fragment implements TopLikeAdapter.OnClick
         RecyclerView gridNewPhoto =
                 (RecyclerView) view.findViewById(R.id.list_item);
 
-        FlowLayoutManager flowLayoutManager = new FlowLayoutManager().singleItemPerLine();
+        FlowLayoutManager flowLayoutManager = new FlowLayoutManager();
         flowLayoutManager.setAutoMeasureEnabled(true);
-        flowLayoutManager.maxItemsPerLine(5);
+        flowLayoutManager.maxItemsPerLine(4);
         gridNewPhoto.setLayoutManager(flowLayoutManager);
 
         mAdapter =
